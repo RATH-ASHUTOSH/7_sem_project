@@ -1,0 +1,175 @@
+! version = 2.0
+
++ hi
+- Hello, im your virtual police. :) \n What is your name?{topic=getname}
+
+> topic getname
++ #
+- Your name is a number?
+
++ my name is *
+- <set name=<formal>>Nice to meet you, <get name>! \n<br>
+^Can you tell me which type of Complain you want to register? \n <br>
+^1.Murder \n <br>
+^2.Mobile Theft \n <br>
+^3.Vehicle Theft \n <br>
+^4.Rape \n <br>
+^5.Harassment \n <br>
+^{topic=compliantype}
++ *
+@ my name is <star>
+< topic
+
+> topic compliantype
++ mobile theft
+-<set comptype=<star>> Ok, can you tell me the name of the mobile?{topic=mobilename}
+
++ vehicle theft
+- <set comptype=<star>> Ok, can you tell me the name of the vehicle?{topic=vehiclename}
+
++ (murder|rape|harassment)
+- <set comptype=<star>>Ok, now tell me when this incident happened?{topic=incidentdate}
+< topic
+
+> topic mobilename
++ *
+- <set mobname=<star>> Now tell me the IMEI Number of the mobile which got stolen.{topic=getimeinumber}
+< topic
+
+> topic getimeinumber
++ *
+- <set imeinumber=<star>> can you tell me the phone number which is in the stolen phone.{topic=getphonenumber}
+< topic
+
+> topic getphonenumber
++ *
+- <set phonenumber=<star>> can you tell me the date of the theft?{topic=dateoftheft}
+< topic
+
+> topic dateoftheft
++ *
+- <set compdate=<star>>Tell me where this happened?{topic=locoftheft}
+< topic
+
+> topic locoftheft
++ *
+- <set compplace=<star>>Can you tell me your state?{topic=getstate}
+< topic
+
+> topic getstate
++ *
+- <set state=<star>>Now tell me your district?{topic=getdistrict}
+< topic
+
+> topic getdistrict
++ *
+- <set district=<star>>Please tell me Your Nearest Police Station To Launch The FIR.
+^(The format should be in "police station name followed by its pin code" i.e. Chandrasekharpur 751016){topic=locofpolice}
+< topic
+
+> topic locofpolice
++ *
+- <set locofpolice=<star>>can you tell me the current phone in which we could get in touch.{topic=curphoneno}
+< topic
+
+> topic curphoneno
++ *
+- <set curphoneno=<star>> Do you have any furdetails?Then tell us.If you don't have any then type no in the text box.{topic=furdetailsy_n}
+< topic
+
+> topic furdetailsy_n
++ no
+- Ok, Now i am gonna ask you some personal details.\n
+^ Can you tell me your Gender?{topic=getgender}
++ *
+- <set furdetails=<star>>Ok, Now i am gonna ask you some personal details.\n
+^ Can you tell me your Gender?{topic=getgender}
+< topic
+
+> topic vehiclename
++ *
+- <set vehiclename=<star>>Now tell me the vehicle number.{topic=vehiclenumber}
+< topic
+
+> topic vehiclenumber
++ *
+- <set vehiclenumber=<star>> Can you tell me the Engine CHESIS Number?{topic=enginechesisnumber}
+< topic
+
+> topic enginechesisnumber
++ *
+- <set enginechesisnumber=<star>>can you tell me the date of the theft?{topic=dateoftheft}
+< topic
+
+> topic incidentdate
++ *
+- <set compdate=<star>>Tell me where this happened?{topic=incidentplace}
+< topic
+
+> topic incidentplace
++ *
+- <set compplace=<star>>Can you briefly describe what happened?{topic=incidentdescription}
+< topic
+
+> topic incidentdescription
++ *
+- <set comdescrip=<star>>Do you have any suspect?{topic=getsuspect}
+< topic
+
+> topic getsuspect
++ yes
+- Can you tell me more about suspect?{topic=getsuspect}
++ no
+- <set suspectdet= No suspect>
++ *
+- <set suspectdet=<star>>Ok, Now i am gonna ask you some personal details.\n
+^ In which name do you want to register complain?{topic=getaddress}
+< topic
+
+> topic getgender
++ *
+- <set gender=<star>>Now tell me your Martial Status.{topic=getmartialstatus}
+< topic
+
+> topic getmartialstatus
++ *
+- <set martialstatus=<star>>Can you give me your full address?{topic=getaddress}
+< topic
+
+> topic getaddress
++ *
+- <set address=<star>>What is your pincode?{topic=getpincode}
+< topic
+
+> topic getpincode
++ #
+- <set pincode=<star>>Thank you for your details./n
+^Do you want to submit those details\n
+^Type Yes or No{topic=confirm}
+< topic
+
+> topic confirm
++ yes
+- Your FIR sucessfully registered. \n Thnk you Have a nice day!{topic=anotherfir}
+< topic
+
+> topic anotherfir
++ *
+- You have already registered an FIR.Do you want to register another one?\n
+^1.yes\n
+^2.no{topic=anotherfiryn}
+< topic
+
+> topic anotherfiryn
++ yes
+-{topic=random}
++ no
+- end
+< topic
+
++i want to register a fir
+-Ok,I can help you with that \n 
+^First of all tell me your full name?{topic=getname}
+
++ thank you
+- you are wellcome <get name>!!

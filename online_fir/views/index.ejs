@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Welcome to Online FIR</title>
+    <link rel="stylesheet" type="text/css" href="/stylesheets/index.css">
+    <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700%7CPT+Serif:400,700,400italic' rel='stylesheet'>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat|Open+Sans" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Flamenco" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+    <header>
+        <nav>
+            <div class="menu cleanfix">
+                <img src="/images/hi.jpeg" class="logo">
+                <img src="/images/40.jpeg" class="stamp">
+
+                <ul class="rightmenu animated slideInDown" id="check-class">
+                    <li><a href="#">HOME</a></li>
+                    <li><a href="#">Tracking</a></li>
+                    <li><a href="#">Update Map</a></li>
+                    <li><a href="#">Contact</a></li>
+                    <li><a href="#">About</a></li>
+                </ul>
+                <a href="#" class="mobile-icon" onclick="slideshow()"> <i class="fa fa-bars"></i></a>
+            </div>
+        </nav>
+
+        <div class="text">
+            <h1>VIRTUAL POLICE STATION </h1>
+            <h4> <span class="colorchange">| MANAGEMENT AT AN EASE |</span>.<br> </h4>
+            <a href="/police" class="btn btn-full"> LOGIN</a>
+            <a href="/users" class="btn btn-nav"> LODGE FIR</a>
+        </div>
+    </header>
+
+    <script type="text/javascript">
+        function slideshow() {
+            var x = document.getElementById('check=class');
+            if (x.style.display === "none") {
+                x.style.display = "block";
+            } else {
+                x.style.display = "none";
+            }
+
+        }
+    </script>
+</body>
+
+</html>

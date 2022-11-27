@@ -1,0 +1,114 @@
+! version = 2.0
+
++ hi
+- Hello, im your virtual police. :) \n What is your name?{topic=getname}
+
+> topic getname
++ #
+- Your name is a number?
+
++ my name is *
+- <set name=<formal>>Nice to meet you, <get name>!\n
+^Can you tell me which type of Complain you want to register?\n
+^1.Murder\n
+^2.Theft\n
+^3.Rape\n
+^4.Harassment\n
+^{topic=compliantype}
++ *
+@ my name is <star>
+< topic
+
+> topic compliantype
++ (murder|theft|rape|harassment)
+- <set comptype=<star>>Ok, now tell me when this incident happened?{topic=incidentdate}
+< topic
+
+> topic incidentdate
++ *
+- <set compdate=<star>>Tell me where this happened?{topic=incidentplace}
+< topic
+
+> topic incidentplace
++ *
+- <set compplace=<star>>Can you briefly describe what happened?{topic=incidentdescription}
+< topic
+
+> topic incidentdescription
++ *
+- <set comdescrip=<star>>Do you have any suspect?{topic=getsuspect}
+< topic
+
+> topic getsuspect
++ yes
+- Can you tell me more about suspect?{topic=getsuspect}
++ no
+- <set suspectdet= No suspect>
++ *
+- <set suspectdet=<star>>Ok, Now i am gonna ask you some personal details.\n
+^ In which name do you want to register complain?{topic=complainname}
+< topic
+
+> topic complainname
++ *
+- <set compname=<star>> Tell me your Father or Husband or Guardiansname.{topic=guardiansname}
+< topic
+
+> topic guardiansname
++ *
+- <set guardiansname=<star>>Tell me name of which identification proof you will provide?{topic=getidentification}
+< topic
+
+> topic getidentification
++ *
+- <set identiproof=<star>>Can you tell me <get identiproof> number.{topic=identiproofnumber}
+< topic
+
+> topic identiproofnumber
++ *
+-<set identiproofno=<star>>Tell me your permanent address.{topic=getaddress}
+< topic
+
+> topic getaddress
++ *
+- <set address=<star>>What is your pincode?{topic=getpincode}
+< topic
+
+> topic getpincode
++ #
+- <set pincode=<star>>What is your mail id?{topic=getmailid}
+< topic
+
+> topic getmailid
++ *
+-<set mailid=<star>>Thank you for your details./n
+^Do you want to submit those details\n
+^1.Yes\n
+^2.No{topic=confirm}
+< topic
+
+> topic confirm
++ yes
+- Your FIR register with <get compname>.\n Thnk you Have a nice day!{topic=anotherfir}
+< topic
+
+> topic anotherfir
++ *
+- You have already registered an FIR.Do you want to register another one?\n
+^1.yes\n
+^2.no{topic=anotherfiryn}
+< topic
+
+> topic anotherfiryn
++ yes
+-{topic=random}
++ no
+- end
+< topic
+
++i want to register a fir
+-Ok,I can help you with that \n 
+^First of all tell me your full name?{topic=getname}
+
++ thank you
+- you are wellcome <get name>!!

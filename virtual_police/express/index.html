@@ -1,0 +1,76 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>ChatBot</title>
+    <link rel="stylesheet" href="./css/bot.css">
+</head>
+<body>
+    <div class="card center">
+        <div class="chat">
+            <div class="messages"></div>
+            <div id="edge"></div>
+        </div>
+            <form class="actions">
+                <input type="text" placeholder="Write a message !" autofocus>
+                <button id=sendButton></button>
+            </form>
+        
+    </div>
+    <script src="https://unpkg.com/rivescript@latest/dist/rivescript.min.js"></script>
+	<script src="./js/chatbot.js"></script>
+
+</body>
+<script>$(document).ready(function(){
+	$("#station").click(function(){
+		if(window.sessionStorage.getItem('state') != 'shown'){
+			$("#myModal").modal('show');
+			window.sessionStorage.setItem('state','shown');	
+		}
+	});
+
+	$("#phone_number").click(function(){
+		if(window.sessionStorage.getItem('state1') != 'shown'){
+			$("#myModal1").modal('show');
+			window.sessionStorage.setItem('state1','shown');
+		}
+	});
+
+	$("#state").change(function(){
+		switch($(this).val()) 
+		{
+			case 'Andhra Pradesh':
+            	$("#district").html("<option selected hidden>Select District</option><option value='Anantapur'>Anantapur</option><option value='Chittoor'>Chittoor</option><option value='Vizianagaram'>Vizianagaram</option><option value='Visakhapatnam'>Visakhapatnam</option>");
+            	break;
+        	case 'Arunachal Pradesh':
+            	$("#district").html("<option selected hidden>Select District</option><option value='Tirap'>Tirap</option><option value='West Kameng'>West Kameng</option><option value='Lower Subansiri'>Lower Subansiri</option><option value='West Siang'>West Siang</option>");
+            	break;
+        	case 'Bihar':
+            	$("#district").html("<option selected hidden>Select District</option><option value='Aurangabad'>Aurangabad</option><option value='Banka'>Banka</option><option value='Bhagalpur'>Bhagalpur</option><option value='Gaya'>Gaya</option>");
+            	break;
+			case 'Mizoram':
+            	$("#district").html("<option selected hidden>Select District</option><option value='Aizawl'>Aizawl</option><option value='Kolasib'>Kolasib</option><option value='Mamit'>Mamit</option><option value='Champhai'>Champhai</option>");
+            	break;
+			case 'Odisha':
+            	$("#district").html("<option selected hidden>Select District</option><option value='Angul'>Angul</option><option value='Balangir'>Balangir</option><option value='Balasore'>Balasore</option><option value='Cuttack'>Cuttack</option><option value='Khordha'>Khordha</option>");
+            	break;
+			case 'Punjab':
+            	$("#district").html("<option selected hidden>Select District</option><option value='Amritsar'>Amritsar</option><option value='Barnala'>Barnala</option><option value='Firozpur'>Firozpur</option><option value='Gurdaspur'>	Gurdaspur</option>");
+            	break;
+        	default:
+	            $("#district").html("<option value=''>--select one--</option>");
+     	}
+
+	$("#district").change(function() {
+     	switch($(this).val()) {
+        	case 'Khordha':
+            	$("#station").html("<option selected hidden>Select Police Station</option><option value='Chandrasekharpur 751016'>Chandrasekharpur Police Station</option><option value='Nayapalli 751015'>Nayapalli Police Station</option><option value='Chandaka 751024'>Chandaka Police Station</option><option value='Infocity 751024'>Infocity Police Station</option><option value='Khandagiri 751030'>Khandagiri Police Station</option><option value='Saheed Nagar 751013'>Saheed Nagar Police Station</option><option value='Sailashree Vihar 751021'>Sailashree Vihar Police Station</option><option value='Mancheswar 751007'>Mancheswar Police Station</option><option value='Kharavela Nagar 751001'>Kharavela Nagar Police Station</option>");
+            	break;
+			default:
+	            $("#station").html("<option value=''>--select one--</option>");
+			}
+		});
+  	});
+});</script>
+</html>

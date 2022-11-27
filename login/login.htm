@@ -1,0 +1,41 @@
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="login.css">
+</head>
+<body>
+<div class="container" id="container">
+	<div class="form-container sign-in-container">
+		<form action="#">
+			<h1>Sign in</h1>
+			
+			<div id="floatContainer" class="float-container">
+				<label for="Adhaar" id="label" >Adhaar no</label>
+				<input type="number" id="email" required="" />
+			</div>
+			<button>Send otp</button>
+			<button>Resend otp</button>
+			<div id="floatContainer" class="float-container">
+				<label for="psw" id="label" >One Time Password</label>
+				<input type="password" id="psw" required="" />
+			</div>
+			<button>Sign In</button>
+		</form>
+	</div>
+	<div class="overlay-container">
+		<div class="overlay">
+			<div class="overlay-panel overlay-left">
+				<h1>Welcome Back!</h1>
+				<p>To keep connected with us please login with your personal info</p>
+				<button class="ghost" id="signIn">Sign In</button>
+			</div>
+			<div class="overlay-panel overlay-right">
+				<h1>Hello, User!</h1>
+				<p>Enter your Adhaar details and start journey with us</p>
+			</div>
+		</div>
+	</div>
+</div>
+
+<script type="text/javascript" src="login.js"></script>
+</body>
+</html>

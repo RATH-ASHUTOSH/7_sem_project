@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+  <title>Delete a Bot</title>
+
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+</head>
+<style type="text/css">
+  #center{
+    display: flex;
+    text-align: center;
+    flex-direction: column;
+    margin-top: 2%;
+    margin-bottom: 2%;
+  }
+  #title{
+    margin-left: center;
+    display: flex;
+    text-align: center;
+    flex-direction: column;
+  }
+</style>
+
+<body>
+  <div id = "title">
+    <i class="material-icons">android</i>
+    <h1>Delete a chatBot</h1>
+    <i class="material-icons">android</i>
+  </div>
+  <form action="deleteBot" method="post" id="center">
+    <select  name="name">
+      <% robots.forEach(function(robot){ %>
+          <option value="<%=robot.name%>"><%=robot.name%></option> <!-- Récupération du nom du bot-->
+
+          <% }); %>
+    </select>
+    <input type="submit" name="" value="Submit">
+  </form>
+
+  <form action="/" method="get" id="center">
+    <input type="submit" name="" value="back">
+  </form>
+
+</body>
+</html>

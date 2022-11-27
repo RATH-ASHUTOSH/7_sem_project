@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<link rel="icon" href="../img/icon.png" type="image/icon type">
+	<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+	<title>Mobile Theft</title>
+	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+	<link href="https://cdn.jsdelivr.net/npm/sweetalert2@9.17.2/dist/sweetalert2.min.css">
+	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@9.17.2/dist/sweetalert2.all.min.js"></script>
+	<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="../css/mobile_theft/mobile_theft_fir.css">
+</head>
+
+<body>
+	<input type="checkbox" id="sidebar-toggle">
+	<div class="sidebar">
+		<div class="sidebar-header">
+			<h3 class="brand">
+				<span class="ti-unlink"></span>
+				<span>VPS</span>
+			</h3>
+			<label for="sidebar-toggle" class="fa fa-bars"></label>
+		</div>
+
+		<div class="sidebar-menu">
+			<ul>
+				<li>
+					<a href="#">
+						<span class="fa fa-home"></span>
+						<span>Home</span>
+					</a>
+				</li>
+				
+				<li>
+					<a href="/user_histroy">
+						<span class="fa fa-history"></span>
+						<span>History</span>
+					</a>
+				</li>
+				
+				<li>
+					<a href="/user_feedback">
+						<span class="fa fa-commenting"></span>
+						<span>Feedback</span>
+					</a>
+				</li>
+		
+				<li>
+					<a href="/accounts">
+						<span class="fa fa-user"></span>
+						<span>Account</span>
+					</a>
+				</li >
+			</ul>
+		</div>
+	</div>
+	
+	<div class="main-content">
+		<header>
+			<div>
+				<!-- <span class="ti-search"></span> -->
+				<h4  style="margin-top: 20px;">Mobile Theft</h4>
+			</div>
+
+			<div class="social-icons">
+				<span class="ti-bell"></span>
+				<span class="ti-comment"></span>
+				<div></div>
+			</div>
+		</header>
+
+		<main>
+            <form action="/mobile_theft_fir" method="POST" id="userform" onsubmit="return validate();">
+				<label>Mobile Name:</label><input type="text" name="mobile_name" placeholder="Mobile Name" required>
+                <label>IMEI Number:</label><input type="number" name="phone_IMEI_number" placeholder="IMEI Number" required>
+				<label>Stolen Mobile Number:</label><input type="number" name="stolen_mobile_no" placeholder="Stolen Mobile Number" required>
+				<label>Location Of Theft:</label><input type="text" name="location_of_theft" placeholder="Location Of Theft" required>
+				<label>Date Of Theft:</label><input type="date" name="date_of_theft" placeholder="Date Of Incident" required>
+                <label>Contact Number:</label><input type="number" name="phone_number" id="phone_number" placeholder="Active Contact Number" required>
+                <label>Gender:</label>
+                <select name="gender" id="gender" required>
+                    <option selected hidden>Gender</option>
+					<option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                    <option value="Transgender">Prefer Not To Say</option>
+                </select>
+                <label>Martial Status:</label>
+                <select name="martial_status" id="martial_status" required>
+					<option selected hidden>Martial Status</option>
+                    <option value="Single">Single</option>
+                    <option value="Married">Married</option>
+                    <option value="Widow">Widow</option>
+                    <option value="Widower">Widower</option>
+                </select>
+				<label>Permanent Address:</label>
+				<select name="state" id="state" required>
+					<option selected hidden>Select Your State</option>
+					<option value="Andhra Pradesh">Andhra Pradesh</option>
+					<option value="Arunachal Pradesh">Arunachal Pradesh</option>
+					<option value="Bihar">Bihar</option>
+					<option value="Mizoram">Mizoram</option>
+					<option value="Odisha">Odisha</option>
+					<option value="Punjab">Punjab</option>
+					<option value="Uttar Pradesh">Uttar Pradesh</option>
+				</select>
+				<select name="district" id="district" required>
+					<option value="">-- select one -- </option>
+				</select>
+				<input type="text" name="permanent_address" placeholder="Permanent Address With Pincode" required>
+				<label>Please Select Your Nearest Police Station To Launch The FIR</label>
+				<select name="station" id="station" required>
+					<option value="">-- select one -- </option>
+				</select>
+				
+                <label>Any Further Description:</label><textarea name="description" placeholder="Any Description..."></textarea>
+                <input type="submit" value="Submit">
+            </form>
+		</main>
+	</div>
+	<!--Police Station Modal View Start-->
+	<div id="myModal" class="modal fade" tabindex="-1">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title">Important Information</h5>
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+				</div>
+				<div class="modal-body">
+					<p>Based On Your Permanent Address, Your Nearest Police Station Are Displayed Below. Please Select The Police Station Which Is Nearer To You, It Will Be Benificial For Both Your And The Investigating Officer To Solve The Case With Ease.</p>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!--Police Station Modal View End-->
+
+	<!--Phone Number Modal View Start-->
+	<div id="myModal1" class="modal fade" tabindex="-1">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title">Important Information</h5>
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+				</div>
+				<div class="modal-body">
+					<p>Stolen Mobile Number And Contact Number Should Be Different. Please Provide Your Current Active Contact Number It Will Act As The Source Of Communication Between You And Investigating Officer. <blockquote>If Both The Numbers Found To Be Same Your FIR Will Not Be Registered</blockquote></p>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!--Phone Number Modal View End-->
+
+
+<script>
+function sweetalertclick()
+{
+    let timerInterval
+    Swal.fire({
+		title: 'FIR Launched Successfully',
+        html: 'You Will Be Automatically Redirected In <strong></strong> seconds.',
+        icon: 'success',
+        timer: 6000,
+        onBeforeOpen: () => {
+            Swal.showLoading()
+            timerInterval = setInterval(() => {
+                Swal.getContent().querySelector('strong').textContent = (Swal.getTimerLeft()/1000).toFixed(0);
+            },1000)
+        },
+        onClose: () => {
+            clearInterval(timerInterval)
+        }
+    })
+    .then((result) => {
+        if(result.dismiss === Swal.DismissReason.timer)
+        {
+
+            console.log('I was closed by the timer')
+        }
+    })
+}
+function validate() 
+{
+	var x = document.getElementsByName('phone_IMEI_number')[0].value;
+	var y = document.getElementsByName('stolen_mobile_no')[0].value;
+	var z = document.getElementsByName('phone_number')[0].value;
+	if (x.length == 15 && y!=z) 
+	{
+		sweetalertclick();
+		return true;
+	}
+	else{
+		if(y==z)
+		{
+			alert("Your Stolen Number Cannot Be Same As You Contact Number. Please Provide Your Current Active Contact Number");	
+		}
+		if(x.length!=15)
+		{
+			alert("Your IMEI Number Must Be Of 15 Digit");
+		}
+		return false;
+	}
+	
+}
+
+
+$(document).ready(function(){
+	$("#station").click(function(){
+		if(window.sessionStorage.getItem('state') != 'shown'){
+			$("#myModal").modal('show');
+			window.sessionStorage.setItem('state','shown');	
+		}
+	});
+
+	$("#phone_number").click(function(){
+		if(window.sessionStorage.getItem('state1') != 'shown'){
+			$("#myModal1").modal('show');
+			window.sessionStorage.setItem('state1','shown');
+		}
+	});
+
+	$("#state").change(function(){
+		switch($(this).val()) 
+		{
+			case 'Andhra Pradesh':
+            	$("#district").html("<option selected hidden>Select District</option><option value='Anantapur'>Anantapur</option><option value='Chittoor'>Chittoor</option><option value='Vizianagaram'>Vizianagaram</option><option value='Visakhapatnam'>Visakhapatnam</option>");
+            	break;
+        	case 'Arunachal Pradesh':
+            	$("#district").html("<option selected hidden>Select District</option><option value='Tirap'>Tirap</option><option value='West Kameng'>West Kameng</option><option value='Lower Subansiri'>Lower Subansiri</option><option value='West Siang'>West Siang</option>");
+            	break;
+        	case 'Bihar':
+            	$("#district").html("<option selected hidden>Select District</option><option value='Aurangabad'>Aurangabad</option><option value='Banka'>Banka</option><option value='Bhagalpur'>Bhagalpur</option><option value='Gaya'>Gaya</option>");
+            	break;
+			case 'Mizoram':
+            	$("#district").html("<option selected hidden>Select District</option><option value='Aizawl'>Aizawl</option><option value='Kolasib'>Kolasib</option><option value='Mamit'>Mamit</option><option value='Champhai'>Champhai</option>");
+            	break;
+			case 'Odisha':
+            	$("#district").html("<option selected hidden>Select District</option><option value='Angul'>Angul</option><option value='Balangir'>Balangir</option><option value='Balasore'>Balasore</option><option value='Cuttack'>Cuttack</option><option value='Khordha'>Khordha</option>");
+            	break;
+			case 'Punjab':
+            	$("#district").html("<option selected hidden>Select District</option><option value='Amritsar'>Amritsar</option><option value='Barnala'>Barnala</option><option value='Firozpur'>Firozpur</option><option value='Gurdaspur'>	Gurdaspur</option>");
+            	break;
+        	default:
+	            $("#district").html("<option value=''>--select one--</option>");
+     	}
+
+	$("#district").change(function() {
+     	switch($(this).val()) {
+        	case 'Khordha':
+            	$("#station").html("<option selected hidden>Select Police Station</option><option value='Chandrasekharpur 751016'>Chandrasekharpur Police Station</option><option value='Nayapalli 751015'>Nayapalli Police Station</option><option value='Chandaka 751024'>Chandaka Police Station</option><option value='Infocity 751024'>Infocity Police Station</option><option value='Khandagiri 751030'>Khandagiri Police Station</option><option value='Saheed Nagar 751013'>Saheed Nagar Police Station</option><option value='Sailashree Vihar 751021'>Sailashree Vihar Police Station</option><option value='Mancheswar 751007'>Mancheswar Police Station</option><option value='Kharavela Nagar 751001'>Kharavela Nagar Police Station</option>");
+            	break;
+			default:
+	            $("#station").html("<option value=''>--select one--</option>");
+			}
+		});
+  	});
+});
+</script>
+</body>
+</html>
+<!-- ^$("#state").change(function(){
+^		switch($(this).val()) 
+^		{
+^			case 'Andhra Pradesh':
+^            	$("#district").html("<option selected hidden>Select District</option><option value='Anantapur'>Anantapur</option><option value='Chittoor'>Chittoor</option><option value='Vizianagaram'>Vizianagaram</option><option value='Visakhapatnam'>Visakhapatnam</option>");
+^            	break;
+^        	case 'Arunachal Pradesh':
+^            	$("#district").html("<option selected hidden>Select District</option><option value='Tirap'>Tirap</option><option value='West Kameng'>West Kameng</option><option value='Lower Subansiri'>Lower Subansiri</option><option value='West Siang'>West Siang</option>");
+^            	break;
+^        	case 'Bihar':
+^            	$("#district").html("<option selected hidden>Select District</option><option value='Aurangabad'>Aurangabad</option><option value='Banka'>Banka</option><option value='Bhagalpur'>Bhagalpur</option><option value='Gaya'>Gaya</option>");
+^            	break;
+^			case 'Mizoram':
+^            	$("#district").html("<option selected hidden>Select District</option><option value='Aizawl'>Aizawl</option><option value='Kolasib'>Kolasib</option><option value='Mamit'>Mamit</option><option value='Champhai'>Champhai</option>");
+^            	break;
+^			case 'Odisha':
+^            	$("#district").html("<option selected hidden>Select District</option><option value='Angul'>Angul</option><option value='Balangir'>Balangir</option><option value='Balasore'>Balasore</option><option value='Cuttack'>Cuttack</option><option value='Khordha'>Khordha</option>");
+^            	break;
+^			case 'Punjab':
+^            	$("#district").html("<option selected hidden>Select District</option><option value='Amritsar'>Amritsar</option><option value='Barnala'>Barnala</option><option value='Firozpur'>Firozpur</option><option value='Gurdaspur'>	Gurdaspur</option>");
+^            	break;
+^        	default:
+^	            $("#district").html("<option value=''>--select one--</option>");
+^     	}
+^
+^	$("#district").change(function() {
+^     	switch($(this).val()) {
+^        	case 'Khordha':
+^            	$("#station").html("<option selected hidden>Select Police Station</option><option value='Chandrasekharpur 751016'>Chandrasekharpur Police Station</option><option value='Nayapalli 751015'>Nayapalli Police Station</option><option value='Chandaka 751024'>Chandaka Police Station</option><option value='Infocity 751024'>Infocity Police Station</option><option value='Khandagiri 751030'>Khandagiri Police Station</option><option value='Saheed Nagar 751013'>Saheed Nagar Police Station</option><option value='Sailashree Vihar 751021'>Sailashree Vihar Police Station</option><option value='Mancheswar 751007'>Mancheswar Police Station</option><option value='Kharavela Nagar 751001'>Kharavela Nagar Police Station</option>");
+^            	break;
+^			default:
+^	            $("#station").html("<option value=''>--select one--</option>");
+^			} -->

@@ -1,0 +1,1 @@
+npx riveshell --watch "A:\shared\7 sem project\node_bot\brain"

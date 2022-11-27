@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <title>Admin MODE</title>
+  </head>
+  <style type="text/css">
+    #center{
+      display: flex;
+      text-align: center;
+      flex-direction: column;
+      margin-top: 2%;
+      margin-bottom: 2%;
+    }
+    form{
+      padding: 10px 10px 10px 10px;
+    }
+  </style>
+  <body id="center">
+
+    <h1>Welcome admin !</h1>
+    <form action="botList" method="get">
+      <input type="submit" name="" value="Bots' list">
+    </form>
+    <form action="add" method="post">
+        <input type="submit" name="" value="Add a bot">
+    </form>
+    <form action="modify" method="post">
+        <input type="submit" value="Modify a bot">
+    </form>
+    <form action="delete" method="post">
+      <input type="submit" name="" value="Delete a bot">
+    </form>
+  </body>
+</html>

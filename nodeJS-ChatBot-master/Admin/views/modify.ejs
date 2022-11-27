@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+  <title>Modify a Bot</title>
+
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+</head>
+<style type="text/css">
+  #center{
+    display: flex;
+    text-align: center;
+    flex-direction: column;
+    margin-top: 2%;
+    margin-bottom: 2%;
+  }
+  #title{
+    margin-left: center;
+    display: flex;
+    text-align: center;
+    flex-direction: column;
+  }
+</style>
+<body>
+  <%=message%>
+    <br>
+  <div id="title">
+    <i class="material-icons">android</i>
+    <h1>Modify Bot</h1>
+    <i class="material-icons">android</i>
+  </div>
+
+  <form action="modify" method="post" id="center">
+    <select  name="name">
+      <% robots.forEach(function(robot){ %>
+          <option value="<%=robot.name%>"><%=robot.name%></option> <!-- Récupération du nom du bot-->
+
+          <% }); %>
+    </select>
+    <input type="submit" name="" value="Submit">
+  </form>
+<%if(name!=undefined){ %>
+  <form action="modify" method="post" id="center">
+    Old name : <%=robot.name%>
+    <br>
+    New name : <input type="text" name="nom" value="<%=robot.name%>" >
+    <br>
+    Old personality : <%=robot.personality%>
+    <br>
+    /!\ You can't change the personality currently /!\
+    <br>
+    New personality :     <select  name="personality">
+          <% personalities.forEach(function(personality){ %>
+              <option value="<%=personality%>"><%=personality%></option> <!-- Récupération du port-->
+              <% }); %>
+        </select>
+        <input type="hidden" name="bot" value="<%=robot.name%>">
+        Old interface :  <%=robot.uiInterface%>
+        <br>
+        New interface :
+        <select  name="interface">
+          <% interfaces.forEach(function(interface){ %>
+              <option value="<%=interface%>"><%=interface%></option> <!-- Récupération de l'interface-->
+              <% }); %>
+        </select>
+              <br>
+                Old token :  <%=robot.token%>
+                <br>
+                Token (if discord) :
+                <input type="text" name="token" value="<%=robot.token%>">
+                <br>
+                Old clientID :  <%=robot.clientID%>
+                <br>
+                ClientID (if discord) :
+                <br>
+                <input type="text" name="clientID" value="<%=robot.clientID%>">
+                <br>
+    <input type="submit" name="" value="submit">
+  </form>
+<%} %>
+<form action="/" method="get" id="center">
+  <input type="submit" value="back">
+</form>
+
+</body>
+</html>

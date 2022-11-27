@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+	<title>Document</title>
+	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body>
+	<input type="checkbox" id="sidebar-toggle">
+	<div class="sidebar">
+		<div class="sidebar-header">
+			<h3 class="brand">
+				<span class="ti-unlink"></span>
+				<span>VPS</span>
+			</h3>
+			<label for="sidebar-toggle" class="fa fa-bars"></label>
+		</div>
+
+		<div class="sidebar-menu">
+			<ul>
+				<li>
+					<a href="#">
+						<span class="fa fa-home"></span>
+						<span>Home</span>
+					</a>
+				</li>
+				
+				<li>
+					<a href="/user_histroy">
+						<span class="fa fa-history"></span>
+						<span>History</span>
+					</a>
+				</li>
+				
+				<li>
+					<a href="/user_feedback">
+						<span class="fa fa-commenting"></span>
+						<span>Feedback</span>
+					</a>
+				</li>
+		
+				<li>
+					<a href="/accounts">
+						<span class="fa fa-user"></span>
+						<span>Account</span>
+					</a>
+				</li >
+			</ul>
+		</div>
+	</div>
+	
+	<div class="main-content">
+		<header class="search-wrapper">
+			<div>
+				<span class="ti-search"></span>
+				<input type="search" placeholder="Search">
+			</div>
+
+			<div class="social-icons">
+				<span class="ti-bell"></span>
+				<span class="ti-comment"></span>
+				<div></div>
+			</div>
+		</header>
+
+		<main>
+			<h2 class="dash-title">Overview</h2>
+            <form action="/mobile_theft_fir" method="POST" id="userform">
+                <label>Name:</label><input type="text" name="user_name" placeholder="Your Name">
+                <label>Phone Number:</label><input type="text" name="phone_number" placeholder="Phone Number">
+                <label>Gender:</label>
+                <select name="gender" id="gender">
+                    <option>Gender</option>
+					<option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                    <option value="Transgender">Prefer Not To Say</option>
+                </select>
+                <label>Martial Status:</label>
+                <select name="martial_status" id="martial_status">
+					<option>Married Status</option>
+                    <option value="Single">Single</option>
+                    <option value="Married">Married</option>
+                    <option value="Widow">Widow</option>
+                    <option value="Widower">Widower</option>
+                </select>
+
+                <label>Brand Name:</label><input type="text" name="phone_brand" placeholder="Phone Brand">
+                <label>IMEI Number:</label><input type="text" name="phone_IMEI_number" placeholder="IMEI Number">
+                <textarea name="description">More Information</textarea>
+                <input type="submit" value="Submit">
+            </form>
+		</main>
+	</div>
+	
+</body>
+</html>

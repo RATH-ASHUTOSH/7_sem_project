@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>USER OTP</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/>
+	<link rel="stylesheet" href="../css/login/login_style.css">
+</head>
+<body>
+    <div id="particles-js">
+	<div class="container">
+		<div class="myCard">
+			<div class="row">
+				<div class="col-md-6">
+					<div class="myLeftCtn">
+						<form class="myForm text-center" action="/user_otp_verification" method="POST">
+							<header>Enter Your OTP</header>
+							<div class="form-group">
+								<i class="fas fa-user"></i>
+								<input class="myInput" type="text" placeholder="Enter OTP" id="user_otp" name="user_otp" required>
+							</div>
+
+							<div class="form-group">
+								<label>
+									<input id="check_1" type="checkbox" name="check_1" required>
+									<small>I read and agree to terms and conditions</small>
+								</label>
+							</div>
+							<input type="submit" class="butt" value="LOGIN"><br><br>
+							<% if (value) { %>
+								<h4>Invalid OTP</h4>
+							<% } %>
+						</form>
+					</div>
+				</div>
+
+				<div class="col-md-6">
+					<div class="myRightCtn">
+						<div class="box"><header>Hello World</header>
+							
+						<p>Lorem ipsum dolor sit amet, consectetue adipiscing elit,
+							sed do eiusom tempor incididunt ut labore et dolore amgna
+							aliqua. Ut enim ad minim veniam.</p>
+							<input type="button" class="butt_out" value="Learn More"/>
+						</div>
+						
+					</div>
+				</div>
+			</div>
+		</div>		
+	</div>
+    </div>
+
+<script src="../js/login/login_particles.js"></script>
+<script src="../js/login/login_app.js"></script>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+</body>
+</html>

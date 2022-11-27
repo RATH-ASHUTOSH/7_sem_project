@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+  <title>Add a Bot</title>
+
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+</head>
+<style type="text/css">
+  #center{
+    display: flex;
+    text-align: center;
+    flex-direction: column;
+    margin-top: 2%;
+    margin-bottom: 2%;
+  }
+  #title{
+    margin-left: center;
+    display: flex;
+    text-align: center;
+    flex-direction: column;
+  }
+</style>
+<body>
+  <%=ajout%>
+  <div id = "center">
+    <i class="material-icons">android</i>
+    <h1>Add a chatBot </h1>
+    <i class="material-icons">android</i>
+  </div>
+  <form action="add" method="post" id = "center">
+    <label for="name">Name : </label>
+    <input type="text" name="name" id="name">
+    <br>
+    Personality :
+    <select  name="personality">
+      <% personalities.forEach(function(personality){ %>
+          <option value="<%=personality%>"><%=personality%></option> <!-- Récupération du personality-->
+
+          <% }); %>
+    </select>
+    <br>
+    Interface :
+    <select  name="interface">
+      <% interfaces.forEach(function(interface){ %>
+          <option value="<%=interface%>"><%=interface%></option> <!-- Récupération de l'interface-->   <% }); %>
+    </select>
+
+
+          Token (if discord)
+
+
+            <input type="text" name="token" value="yourToken" id="token">
+
+            <br>
+            ClientID (if discord) :
+            <br>
+            <input type="text" name="clientID" value="yourClientID">
+    <input type="submit" name="" value="Submit">
+  </form>
+<form action="/" method="get" id = "center">
+  <input type="submit" value="back">
+</form>
+
+</body>
+</html>

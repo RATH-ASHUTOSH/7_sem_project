@@ -1,0 +1,90 @@
+* {
+    font-family: Courier;
+    font-size: 11pt;
+}
+
+.center {
+    margin: auto;
+    border: 3px solid green;
+    padding: 10px;
+}
+
+.card {
+    box-shadow: 0 10px 20px 0 rgba(0,0,0,0.5);
+    transition: 0.3s;
+    width: 35%;
+    height: 90vh;
+    border-radius: 10px;
+}
+
+.chat {
+    width: auto;
+    height: 90%;
+    overflow: scroll;
+}
+
+.actions {
+    padding-top: 20px;
+    bottom: 0;
+    display: block;
+}
+
+.actions input {
+    height: 30px;
+    display: -webkit-inline-box;
+    width: 90%;
+    outline: 0;
+    border-top: 0;
+    border-left: 0;
+    border-right: 0;
+}
+
+#sendButton {
+    background-image: url('/images/send.png');
+    float: right;
+    width: 30px;
+    height: 30px;
+    border: none;
+    background-size: cover;
+}
+
+#sendButtonimg {
+    width: 20px;
+    height: 20px;
+}
+
+.messages div {
+    max-width: 60%;
+    display: block;
+    margin: 5px;
+    padding: 10px;
+    border-radius: 7px;
+}
+
+.messages .bot {
+    text-align: left;
+    margin-right: auto;
+    margin-left: 40px;
+    background: lightblue;
+}
+
+.messages .self {
+    text-align: right;
+    margin-left: auto;
+    margin-right: 40px;
+    background: #DDD
+}
+
+.selfimg {
+    width: 30px;
+    height: 30px;
+    float: right;
+    margin-right: 5px;
+}
+
+.botimg {
+    width: 30px;
+    height: 30px;
+    float: left;
+    margin-left: 5px;
+}

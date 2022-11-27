@@ -1,0 +1,33 @@
+<html>
+	<head>Speech to text</head>
+	<body>
+		<div id="output"></div>
+		<button onclick="recognition.start()">Start</button>
+		<button onclick="recognition.stop()">Stop</button>
+		<p id="server"></p>
+		
+		<iframe id="bot" width="350" height="430" allow="microphone;" src="https://console.dialogflow.com/api-client/demo/embedded/7d51d67b-2fef-413b-8a99-d32ce299b019"></iframe>
+		<button onclick="myFunction()">Try it</button>
+		
+	</body>
+	<script>
+		var recognition = new webkitSpeechRecognition();
+		recognition.continuous = true;
+		recognition.interimResults = true;
+
+		
+		var output = document.getElementById('output');
+		recognition.onresult = function(event) {
+			output.textContent = event.results[0][0].transcript;
+		};	
+		function myFunction() {
+			var iframe = document.getElementById("bot");
+			console.log("bug"+iframe.contentWindow);
+			var x = iframe.contentWindow.document.getElementsByClassName("server-response");
+			console.log(x);
+			/*var y=x[x.length-1].textContent;
+			document.getElementById("server").innerHTML = y;*/
+		}
+			
+	</script>
+	</html>
